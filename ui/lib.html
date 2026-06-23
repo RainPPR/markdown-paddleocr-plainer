@@ -1,0 +1,74 @@
+<h1>Markdown HTML Stripper</h1>
+
+<div id="status" class="status" style="display: none;"></div>
+
+<div id="progress" class="progress">
+    <div class="progress-bar">
+        <div id="progress-fill" class="progress-fill"></div>
+    </div>
+    <div id="progress-text" class="progress-text">0 / 0</div>
+</div>
+
+<div class="buttons">
+    <button class="btn-add" id="btn-add" data-action="add">添加文件</button>
+    <button class="btn-delete" id="btn-delete" data-action="delete">删除选中</button>
+    <button class="btn-clear" id="btn-clear" data-action="clear">清空列表</button>
+    <button class="btn-start" id="btn-start" data-action="start">开始处理</button>
+</div>
+
+<!-- 待处理文件列表 -->
+<div class="section">
+    <div class="section-title">
+        待处理文件
+        <span class="badge" id="pending-count">0</span>
+    </div>
+    <div class="file-table-container">
+        <table class="file-table" id="pending-table">
+            <thead>
+                <tr>
+                    <th class="col-checkbox"><input type="checkbox" id="select-all-pending"></th>
+                    <th class="col-name">文件名</th>
+                    <th class="col-path">路径</th>
+                    <th class="col-size">大小</th>
+                    <th class="col-lines">行数</th>
+                    <th class="col-status">状态</th>
+                </tr>
+            </thead>
+            <tbody id="pending-list">
+                <tr><td colspan="6" class="empty-state">暂无文件，点击"添加文件"选择 Markdown 文件</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- 已完成文件列表 -->
+<div class="section">
+    <div class="section-title">
+        已完成
+        <span class="badge success" id="completed-count">0</span>
+    </div>
+    <div class="file-table-container">
+        <table class="file-table" id="completed-table">
+            <thead>
+                <tr>
+                    <th class="col-name">文件名</th>
+                    <th class="col-path">路径</th>
+                    <th class="col-size">原始大小</th>
+                    <th class="col-size">处理后大小</th>
+                    <th class="col-size">减少比例</th>
+                    <th class="col-lines">减少行数</th>
+                    <th class="col-status">状态</th>
+                    <th class="col-action">操作</th>
+                </tr>
+            </thead>
+            <tbody id="completed-list">
+                <tr><td colspan="8" class="empty-state">暂无已完成文件</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="errors" class="errors" style="display: none;">
+    <h3>处理错误</h3>
+    <div id="error-list"></div>
+</div>

@@ -1,0 +1,20 @@
+{
+  "name": "markdown-paddleocr-plainer",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint": "tsc --noEmit --strict",
+    "dev": "bun run index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@webviewjs/webview": "^0.2.1",
+    "string-strip-html": "^13.5.3"
+  }
+}
