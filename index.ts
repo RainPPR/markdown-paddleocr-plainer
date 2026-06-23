@@ -3,6 +3,11 @@ import { stripHtml } from "./lib_strip";
 import { readFile, writeFile, copyFile, stat } from "node:fs/promises";
 import { basename, dirname } from "node:path";
 
+import htmlContent from "./ui/lib.html" with { type: "text" };
+// @ts-expect-error
+import cssContent from "./ui/style.css" with { type: "text" };
+import jsContent from "./ui/script.js" with { type: "text" };
+
 // ============================================================
 //  Types (shared with renderer via expose / used in handler)
 // ============================================================
@@ -241,11 +246,12 @@ async function processLargeFile(content: string): Promise<string> {
 }
 
 async function buildHtml(): Promise<string> {
-    const [htmlContent, cssContent, jsContent] = await Promise.all([
-        Bun.file("ui/lib.html").text(),
-        Bun.file("ui/style.css").text(),
-        Bun.file("ui/script.js").text(),
-    ]);
+    // const [htmlContent, cssContent, jsContent] = await Promise.all([
+    //     ui_html, ui_css, ui_js
+    //     // Bun.file("ui/lib.html").text(),
+    //     // Bun.file("ui/style.css").text(),
+    //     // Bun.file("ui/script.js").text(),
+    // ]);
     return `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>

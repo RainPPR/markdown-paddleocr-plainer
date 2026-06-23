@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "lint": "tsc --noEmit --strict",
-    "dev": "bun run index.ts"
+    "dev": "bun run index.ts",
+    "bundle": "bun build ./index.ts --minify --minify-whitespace --minify-identifiers --minify-syntax --bytecode --sourcemap --format=esm --compile --compile-autoload-tsconfig --compile-autoload-package-json --outfile ./release/markdown-paddleocr-plainer",
+    "bundle:windows": "bun build ./index.ts --minify --minify-whitespace --minify-identifiers --minify-syntax --bytecode --sourcemap --format=esm --compile --windows-hide-console --compile-autoload-tsconfig --compile-autoload-package-json --outfile ./release/markdown-paddleocr-plainer.exe"
   },
   "devDependencies": {
     "@types/bun": "latest"
