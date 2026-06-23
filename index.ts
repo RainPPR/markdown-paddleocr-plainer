@@ -1,5 +1,5 @@
 import { Application } from "@webviewjs/webview";
-import { stripHtml } from "./lib_strip";
+import { stripHtml } from "./lib/strip.ts";
 import { readFile, writeFile, copyFile, stat } from "node:fs/promises";
 import { basename, dirname } from "node:path";
 
